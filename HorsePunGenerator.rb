@@ -1,4 +1,3 @@
-require 'rhymes'
 require 'text'
 sentence = 'May the force be with you'
 words = ['horse', 'hoof', 'hooves', 'horses']
