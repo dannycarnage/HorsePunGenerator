@@ -12,17 +12,12 @@ end.parse!
 def horsepunize(sentence)
 words = Array.new
 File.open('wordlist').each { |l| words << l.chomp }
-metawords = Array.new
 output = Array.new
-white = Text::WhiteSimilarity.new
-words.each do |w|
-metawords.push(Text::Metaphone.metaphone(w))
-end
 sentence.split.each do |s|
-metawords.each do |m|
-if white.similarity(m, Text::Metaphone.metaphone(s)) > 0.3 then
+words.each do |m|
+if s.length > 3 and Text::Levenshtein.distance(m, s) < 3 then
 tempsentence = sentence.split
-tempsentence[sentence.split.index(s)] = words[metawords.index(m)]
+tempsentence[sentence.split.index(s)] = words[words.index(m)]
 output.push tempsentence.join(" ")
 end
 end
