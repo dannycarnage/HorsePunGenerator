@@ -1,7 +1,7 @@
 require 'rhymes'
 require 'text'
 sentence = 'May the force be with you'
-words = ['horse', 'house', 'porsche', 'force', 'coarse', 'course', 'recourse', 'hoof', 'hooves', 'horses']
+words = ['horse', 'hoof', 'hooves', 'horses']
 metawords = []
 output = []
 white = Text::WhiteSimilarity.new
